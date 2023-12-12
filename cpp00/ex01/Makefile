@@ -9,7 +9,7 @@ $(NAME) : Makefile phonebook.hpp $(SRC)
 
 clean:
 	@rm $(NAME)
-	@printf "DELETED $(NAME) ---"
+	@printf "DELETED $(NAME) ---\n"
 
 fclean: clean
 
