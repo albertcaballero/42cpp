@@ -19,7 +19,8 @@ class PhoneBook
 {
 public:
 	int	count;
-	Contact contact;
+	int	index;
+	Contact contact[8];
 };
 
 
