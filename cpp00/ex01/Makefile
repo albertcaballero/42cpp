@@ -1,6 +1,6 @@
 NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = phonebook.cpp
+SRC = phonebook.cpp contact.cpp
 
 all: $(NAME)
 

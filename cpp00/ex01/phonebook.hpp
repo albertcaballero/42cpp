@@ -1,27 +1,28 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <iostream>
+#include "Contact.hpp"
 
-class Contact
-{
-public:
-	int index;
-	std::string first_name;
-	std::string	last_name;
-	std::string nickname;
-private:
-	std::string phone;
-	std::string	secret;
-};
+# define FNAME 1
+# define LNAME 2
+# define NICK 3
+# define PHONE 4
+# define SECRET 5
 
 class PhoneBook
 {
+private:
+	Contact contact_list[8];
 public:
+	// PhoneBook();
+	// ~PhoneBook();
 	int	count;
-	int	index;
-	Contact contact[8];
+	void print_full_data(int index);
+	void print_line_data();
+	void add_contact();
+	void search_contacts();
 };
 
+int	validdigit(std::string txt);
 
 #endif
