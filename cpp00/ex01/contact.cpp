@@ -19,10 +19,20 @@ std::string Contact::input()
 {
 	std::string input;
 
-	std::cin >> input;
-	std::cin.clear();
-	if (input.empty() || std::cin.eof())
-		exit(5);
+	while (1)
+	{
+		getline(std::cin, input);
+		if (std::cin.eof()){
+			std::cerr << "\033[38;5;190m--> EXITING...\n";
+			exit(1);
+		}
+		for (int i = 0; input[i] != 0; i++)
+		{
+			if (input[i] != ' ')
+				return input;
+		}
+		std::cout << "--> Invalid, try again : ";
+	}
 	return input;
 }
 
@@ -30,13 +40,18 @@ std::string Contact::input_phone()
 {
 	std::string input;
 
-	std::cin >> input;
-	std::cin.clear();
-	if (input.empty() || std::cin.eof())
-		exit(5);
-	if (validdigit(input) == -1 || input.length() < 7){
-		std::cout << "--> INVALID NUMBER\nPHONE       : ";
-		input_phone();
+	while (1)
+	{
+		getline(std::cin, input);
+		if (std::cin.eof()){
+			std::cerr << "\033[38;5;190m--> EXITING...\n";
+			exit(1);
+		}
+		if (validdigit(input) == -1 || input.length() < 7){
+			std::cout << "--> Invalid, try again : ";
+		}
+		else
+			return input;
 	}
 	return input;
 }

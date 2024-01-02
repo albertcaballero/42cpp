@@ -12,8 +12,6 @@ private:
 	std::string phone;
 	std::string	secret;
 public:
-	// Contact();
-	// ~Contact();
 	void		create();
 	std::string input();
 	std::string input_phone();

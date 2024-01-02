@@ -14,8 +14,6 @@ class PhoneBook
 private:
 	Contact contact_list[8];
 public:
-	// PhoneBook();
-	// ~PhoneBook();
 	int	count;
 	void print_full_data(int index);
 	void print_line_data();

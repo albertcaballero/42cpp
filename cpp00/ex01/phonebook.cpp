@@ -5,7 +5,7 @@ std::string trimstr(std::string str)
 	if (str.length() > 10)
 	{
 		str.resize(9);
-		str + ".";
+		str.append(".");
 	}
 	return (str);
 }
@@ -33,12 +33,18 @@ void	PhoneBook::print_full_data(int index)
 
 void	PhoneBook::print_line_data()
 {
-	std::cout << "index\t| first name\t| last name\t| nickname" << std::endl;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	for (int i = 0; i < count%8; i++)
 	{
-		std::cout << i << "\t| ";
-		std::cout << trimstr(contact_list[i].get_info(FNAME)) << "\t| ";
-		std::cout << trimstr(contact_list[i].get_info(LNAME)) << "\t| ";
+		std::cout << "         " << i << "|";
+		for (int j = 0; j < 10 - (int)contact_list[i].get_info(FNAME).length(); j++)
+			std::cout << " ";
+		std::cout << trimstr(contact_list[i].get_info(FNAME)) << "|";
+		for (int j = 0; j < 10 - (int)contact_list[i].get_info(LNAME).length(); j++)
+			std::cout << " ";
+		std::cout << trimstr(contact_list[i].get_info(LNAME)) << "|";
+		for (int j = 0; j < 10 - (int)contact_list[i].get_info(NICK).length(); j++)
+			std::cout << " ";
 		std::cout << trimstr(contact_list[i].get_info(NICK)) << std::endl;
 	}
 }
@@ -56,21 +62,23 @@ void PhoneBook::search_contacts()
 	int			idx;
 	
 	print_line_data();
-	std::cout << "--> input index" << std::endl;
-	std::cin >> index;
-	std::cin.clear();
-	if (index.length() > 1){
-		std::cout << "--> out of scope, try again" << std::endl;
-		search_contacts();
-	}
-	if (validdigit(index) == -1){
-		std::cout << "--> out of scope, try again" << std::endl;
-		search_contacts();
-	}
-	idx = std::stoi(index);
-	if (idx > 7 || idx < 0 || idx >= count%8){
-		std::cout << "--> out of scope, try again" << std::endl;
-		search_contacts(); //doing recursive is not good idea, use while/for/do_while
+	while (1)
+	{
+		std::cout << "--> input index: ";
+		getline(std::cin, index);
+		if (std::cin.eof()){
+			std::cerr << "\033[38;5;190m--> EXITING...\n";
+			exit(1);
+		}
+		if (index.length() > 1 || validdigit(index) == -1){
+			std::cout << "--> out of scope, try again" << std::endl;
+			continue;
+		}
+		idx = std::stoi(index);
+		if (idx > 7 || idx < 0 || idx >= count%8)
+			std::cout << "--> out of scope, try again" << std::endl;
+		else
+			break;
 	}
 	print_full_data(idx);
 }
@@ -79,30 +87,29 @@ int	main(void)
 {
 	std::string input;
 	PhoneBook book;
-	std::string color = "\033[38;5;190m";
 	std::string NC = "\033[0m";
 	while (1)
 	{
-		std::cout << color << "--> What do you want to do?" << NC << std::endl;
-		std::cin >> input;
-		std::cin.clear();
+		std::cout << "\033[38;5;190m--> What do you want to do?" << NC << std::endl;
+		getline(std::cin, input);
+		if (std::cin.eof()){
+			std::cerr << "\033[38;5;190m--> EXITING...\n";
+			exit(1);
+		}
 		if (input == "ADD"){
-			std::cout << color << "--> Who do you want to add?" << NC << std::endl;
+			std::cout << "\033[38;5;190m--> Who do you want to add?" << NC << std::endl;
 			book.add_contact();
 		}
 		else if (input == "SEARCH"){
-			std::cout << color << "--> Who do you want to search?" << NC << std::endl;
+			std::cout << "\033[38;5;190m--> Who do you want to search?" << NC << std::endl;
 			book.search_contacts();
 		}
-		else if (input == "EXIT")
-		{
-			std::cout << color << "--> Bye!! <--" << NC << std::endl;
+		else if (input == "EXIT"){
+			std::cout << "\033[38;5;190m--> Bye!! <--" << NC << std::endl;
 			return (0);
 		}
-		else
-		{
-			std::cout << color << "--> Wrong input!! <--\n" << NC << std::endl;
-			continue;
+		else {
+			std::cout << "\033[38;5;190m--> Wrong input!! <--\n" << NC << std::endl;
 		}
 	}
 	return (0);
