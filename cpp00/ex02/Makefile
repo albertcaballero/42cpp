@@ -1,6 +1,6 @@
 NAME = account
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Account.cpp
+SRC = Account.cpp tests.cpp
 
 all: $(NAME)
 
