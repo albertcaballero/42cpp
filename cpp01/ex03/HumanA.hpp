@@ -9,10 +9,11 @@ class HumanA
 {
 private:
 	std::string name;
-	Weapon weap;
+	Weapon &weap;
 public:
-	HumanA(/* args */);
+	HumanA(std::string gname, Weapon gweap);
 	~HumanA();
+	void attack(void);
 };
 
 #endif

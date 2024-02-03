@@ -11,8 +11,10 @@ private:
 	std::string name;
 	Weapon weap;
 public:
-	HumanB(/* args */);
+	HumanB(std::string gname);
 	~HumanB();
+	void attack(void);
+	void setWeapon(Weapon gweap);
 };
 
 #endif

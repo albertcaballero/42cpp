@@ -1,10 +1,11 @@
 NAME = violence
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
 
 all: $(NAME)
 
-$(NAME) : Makefile $(SRC)
+$(NAME) : Makefile $(SRC) $(HEADERS)
 	c++ $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
