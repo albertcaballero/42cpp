@@ -1,8 +1,8 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string gname)
+HumanB::HumanB(std::string name)
 {
-	name = gname;
+	_name = name;
 }
 
 HumanB::~HumanB()
@@ -12,10 +12,10 @@ HumanB::~HumanB()
 
 void HumanB::attack(void)
 {
-	std::cout << name << " attacks with their " << weap.getType() << std::endl;
+	std::cout << _name << " attacks with their " << _weap.getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon gweap)
+void HumanB::setWeapon(Weapon weap)
 {
-	weap = gweap;
+	_weap = weap;
 }
