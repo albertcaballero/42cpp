@@ -13,4 +13,8 @@ int	main(int argc, char **argv)
 	std::string outfile = argv[1];
 	outfile.append(".replace");
 	std::ofstream out(outfile);
+
+	out << "hola";
+	out.close();
+	in.close();
 }

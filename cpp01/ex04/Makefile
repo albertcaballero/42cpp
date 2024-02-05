@@ -1,7 +1,7 @@
-NAME = violence
+NAME = sed
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
-HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
+SRC = main.cpp
+HEADERS = 
 
 all: $(NAME)
 
