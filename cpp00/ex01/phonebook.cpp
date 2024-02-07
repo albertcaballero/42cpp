@@ -51,8 +51,7 @@ void	PhoneBook::print_line_data()
 
 void PhoneBook::add_contact()
 {
-	count %= 8;
-	contact_list[count].create();
+	contact_list[count%8].create();
 	count++;
 }
 
