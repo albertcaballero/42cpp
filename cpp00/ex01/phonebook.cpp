@@ -34,7 +34,8 @@ void	PhoneBook::print_full_data(int index)
 void	PhoneBook::print_line_data()
 {
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	for (int i = 0; i < count%8; i++)
+	int	num = count > 7 ? 8 : count;
+	for (int i = 0; i < num; i++)
 	{
 		std::cout << "         " << i << "|";
 		for (int j = 0; j < 10 - (int)contact_list[i].get_info(FNAME).length(); j++)
@@ -74,42 +75,10 @@ void PhoneBook::search_contacts()
 			continue;
 		}
 		idx = std::stoi(index);
-		if (idx > 7 || idx < 0 || idx >= count%8)
+		if (idx > 7 || idx < 0 || (idx >= count%8 && count < 8))
 			std::cout << "--> out of scope, try again" << std::endl;
 		else
 			break;
 	}
 	print_full_data(idx);
-}
-
-int	main(void)
-{
-	std::string input;
-	PhoneBook book;
-	std::string NC = "\033[0m";
-	while (1)
-	{
-		std::cout << "\033[38;5;190m--> What do you want to do?" << NC << std::endl;
-		getline(std::cin, input);
-		if (std::cin.eof()){
-			std::cerr << "\033[38;5;190m--> EXITING...\n";
-			exit(1);
-		}
-		if (input == "ADD"){
-			std::cout << "\033[38;5;190m--> Who do you want to add?" << NC << std::endl;
-			book.add_contact();
-		}
-		else if (input == "SEARCH"){
-			std::cout << "\033[38;5;190m--> Who do you want to search?" << NC << std::endl;
-			book.search_contacts();
-		}
-		else if (input == "EXIT"){
-			std::cout << "\033[38;5;190m--> Bye!! <--" << NC << std::endl;
-			return (0);
-		}
-		else {
-			std::cout << "\033[38;5;190m--> Wrong input!! <--\n" << NC << std::endl;
-		}
-	}
-	return (0);
 }

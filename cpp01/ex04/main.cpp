@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 {
 	if (check_arguments(argc, argv) < 0)
 		return (1);
-	std::string::iterator i;
+	int i;
 	std::string buffer;
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
@@ -33,8 +33,8 @@ int	main(int argc, char **argv)
 
 	while (getline(in, buffer))
 	{
-		i = buffer.begin();
-		while (i < buffer.end())
+		i = 0;
+		while (i < buffer.length())
 		{
 			i = buffer.find(s1);
 			buffer.erase(i, s1.length());
