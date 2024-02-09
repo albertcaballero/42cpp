@@ -21,7 +21,8 @@ int	main(int argc, char **argv)
 {
 	if (check_arguments(argc, argv) < 0)
 		return (1);
-	int i;
+	size_t i;
+	int ret;
 	std::string buffer;
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
@@ -36,7 +37,9 @@ int	main(int argc, char **argv)
 		i = 0;
 		while (i < buffer.length())
 		{
-			i = buffer.find(s1);
+			if ((ret = buffer.find(s1)) < 0)
+				break ;
+			i = ret;
 			buffer.erase(i, s1.length());
 			buffer.insert(i, s2);
 			i += s1.length();
