@@ -4,14 +4,14 @@ int	main(void)
 {
 	Harl karen;
 
-	std::cout << "Karen is happy (debug)\n";
+	std::cout << "\033[38;5;190m-->Karen is happy (debug)\033[0m\n";
 	karen.complain("DEBUG");
-	std::cout << "Karen is upset (info)\n";
+	std::cout << "\033[38;5;190m-->Karen is upset (info)\033[0m\n";
 	karen.complain("INFO");
-	std::cout << "Karen is angry (warning)\n";
+	std::cout << "\033[38;5;190m-->Karen is angry (warning)\033[0m\n";
 	karen.complain("WARNING");
-	std::cout << "Karen is furious (error)\n";
+	std::cout << "\033[38;5;190m-->Karen is furious (error)\033[0m\n";
 	karen.complain("ERROR");
-	std::cout << "Karen broke\n";
+	std::cout << "\033[38;5;190m-->Karen broke\033[0m\n";
 	karen.complain("AAA");
 }
