@@ -1,19 +1,31 @@
 NAME = harlFilter
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Harl.cpp
-HEADERS = Harl.hpp
+OBJDIR = temp/
+OBJ = $(SRC:%.cpp=$(OBJDIR)%.o)
+DEPEND = $(OBJ:%.o=%.d)
 
-all: $(NAME)
+all: $(OBJDIR) $(NAME)
 
-$(NAME) : Makefile $(SRC) $(HEADERS)
-	c++ $(CFLAGS) $(SRC) -o $(NAME)
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(NAME): $(OBJ)
+	c++ $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJDIR)%.o: %.cpp Makefile
+	c++ $(CFLAGS) -MMD -c $< -o $@
 
 clean:
-	@rm $(NAME)
-	@printf "DELETED $(NAME) ---\n"
+	@rm -rf $(OBJDIR)
+	@echo "DELETED OBJECTS ---"
 
 fclean: clean
+	@rm -f $(NAME)
+	@echo "DELETED $(NAME) ---"
 
-re:	fclean $(NAME)
+re:	fclean all
 
 .PHONY: clean fclean re all
+
+-include $(DEPEND)
