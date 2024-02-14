@@ -11,12 +11,11 @@ Fixed::~Fixed()
 	std::clog << "Destructor called\n";
 }
 
-Fixed Fixed::operator=(Fixed const& old)
+Fixed &Fixed::operator=(Fixed const& old)
 {
 	std::clog << "Copy assignment (=) operator called\n";
-	Fixed created;
-	created.value = old.value;
-	return (created); 
+	this->value = old.value;
+	return (*this);
 }
 
 Fixed::Fixed(Fixed const& old)
@@ -25,13 +24,44 @@ Fixed::Fixed(Fixed const& old)
 	this->value = old.value;
 }
 
+Fixed::Fixed(int const num)
+{
+	std::clog << "INT constructor called\n";
+	value = num << bits;
+}
+
+Fixed::Fixed(float const flnum)
+{
+	std::clog << "FLOAT constructor called\n";
+	value = flnum * 256.0;
+}
+
 int Fixed::getRawBits(void) const
 {
 	std::clog << "getRawBits member function called\n";
-
+	return value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::clog << "setRawBits member function called\n";
+	value = raw;
+}
+
+std::ostream &operator<<(std::ostream &out, Fixed const &fixed)
+{
+	out << fixed.toFloat();
+	return out;
+}
+
+float Fixed::toFloat(void) const
+{
+	float flnum = value / 256.0;
+	return flnum;
+}
+
+int	Fixed::toInt(void) const
+{
+	int num = value >> bits;
+	return num;
 }

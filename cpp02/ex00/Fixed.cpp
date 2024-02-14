@@ -3,7 +3,7 @@
 Fixed::Fixed()
 {
 	value = 0;
-	std::clog << "default constructor called\n";
+	std::clog << "Default constructor called\n";
 }
 
 Fixed::~Fixed()
@@ -21,17 +21,18 @@ Fixed Fixed::operator=(Fixed const& old)
 
 Fixed::Fixed(Fixed const& old)
 {
-	std::clog << "copy constructor called\n";
+	std::clog << "Dopy constructor called\n";
 	this->value = old.value;
 }
 
 int Fixed::getRawBits(void) const
 {
 	std::clog << "getRawBits member function called\n";
-
+	return value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::clog << "setRawBits member function called\n";
+	value = raw;
 }
