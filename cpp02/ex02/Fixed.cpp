@@ -64,3 +64,50 @@ int	Fixed::toInt(void) const
 {
 	return value >> bits;
 }
+
+int Fixed::operator>(Fixed const& old)
+{
+	return this->value > old.value;
+}
+
+int Fixed::operator>=(Fixed const& old)
+{
+	return this->value >= old.value;
+}
+
+int Fixed::operator<(Fixed const& old)
+{
+	return this->value < old.value;
+}
+
+int Fixed::operator<=(Fixed const& old)
+{
+	return this->value <= old.value;
+}
+
+int Fixed::operator==(Fixed const& old)
+{
+	return this->value == old.value;
+}
+
+int Fixed::operator!=(Fixed const& old)
+{
+	return this->value != old.value;
+}
+
+/*
+		Fixed &operator+(Fixed const& old);
+		Fixed &operator-(Fixed const& old);
+		Fixed &operator*(Fixed const& old);
+		Fixed &operator/(Fixed const& old);
+		//increment
+		Fixed &operator++(void);
+		Fixed &operator--(void);
+		Fixed operator++(int num);
+		Fixed operator--(int num);
+		//comparators
+		Fixed &min(Fixed&, Fixed&);
+		Fixed &min(Fixed const&, Fixed const&);
+		Fixed &max(Fixed&, Fixed&);
+		Fixed &max(Fixed const&, Fixed const&);
+*/
