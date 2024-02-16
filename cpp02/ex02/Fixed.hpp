@@ -1,3 +1,6 @@
+#ifndef FIXED_H_
+#define FIXED_H_
+
 #include <iomanip>
 #include <iostream>
 
@@ -24,21 +27,23 @@ class Fixed{
 		int operator==(Fixed const& old);
 		int operator!=(Fixed const& old);
 		//arithmetic
-		Fixed &operator+(Fixed const& old);
-		Fixed &operator-(Fixed const& old);
-		Fixed &operator*(Fixed const& old);
-		Fixed &operator/(Fixed const& old);
+		Fixed operator+(Fixed const& old);
+		Fixed operator-(Fixed const& old);
+		Fixed operator*(Fixed const& old);
+		Fixed operator/(Fixed const& old);
 		//increment
 		Fixed &operator++(void);
 		Fixed &operator--(void);
-		Fixed operator++(int num);
-		Fixed operator--(int num);
+		Fixed operator++(int);
+		Fixed operator--(int);
 		//comparators
-		Fixed &min(Fixed&, Fixed&);
-		Fixed &min(Fixed const&, Fixed const&);
-		Fixed &max(Fixed&, Fixed&);
-		Fixed &max(Fixed const&, Fixed const&);
+		static Fixed &min(Fixed&, Fixed&);
+		static const Fixed &min(Fixed const&, Fixed const&);
+		static Fixed &max(Fixed&, Fixed&);
+		static const Fixed &max(Fixed const&, Fixed const&);
 
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
+
+#endif

@@ -15,7 +15,8 @@ public:
 	Point(const float x, const float y);
 	Point(const Fixed& x, const Fixed& y);
 	Point(Point const& old);
-	Point &operator=(Point const& old);
+	Point operator=(Point const& old);
+	float getval(int flag) const;
 };
 
 #endif

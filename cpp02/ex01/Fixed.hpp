@@ -1,3 +1,6 @@
+#ifndef FIXED_H_
+#define FIXED_H_
+
 #include <iomanip>
 #include <iostream>
 
@@ -19,3 +22,5 @@ class Fixed{
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
+
+#endif
