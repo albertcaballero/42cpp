@@ -1,6 +1,6 @@
-NAME = bsp
+NAME = ClapTrap
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJDIR = temp/
 OBJ = $(SRC:%.cpp=$(OBJDIR)%.o)
 DEPEND = $(OBJ:%.o=%.d)

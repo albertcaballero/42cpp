@@ -6,7 +6,7 @@ int main(void)
 	ClapTrap nines("9S");
 	ClapTrap adam("Adam");
 
-	// twoB.attack(adam.name);
-	//attacking or reparaing costs 1ep
-	//claptrap cannot do anything if no HP or no EP
+	twoB.attack("Adam");
+	twoB.takeDamage(5);
+	twoB.beRepaired(2);
 }

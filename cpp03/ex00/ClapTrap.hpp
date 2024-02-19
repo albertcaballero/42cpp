@@ -6,10 +6,10 @@
 
 class ClapTrap{
 private:
-	std::string name;
 	int hp;
-	int ep;
 	int ad;
+	int ep;
+	std::string name;
 public:
 	ClapTrap();
 	ClapTrap(std::string _name);
