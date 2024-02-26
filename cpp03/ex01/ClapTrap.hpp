@@ -5,7 +5,7 @@
 #include <iomanip>
 
 class ClapTrap{
-private:
+protected:
 	int hp;
 	int ad;
 	int ep;
