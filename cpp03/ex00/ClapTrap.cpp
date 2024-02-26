@@ -30,7 +30,7 @@ ClapTrap ClapTrap::operator=(ClapTrap const& old){
 void ClapTrap::attack(const std::string& target)
 {
 	if (ep <= 0 || hp <= 0)
-		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!";
+		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!\n";
 	else
 	{
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing "\
@@ -48,7 +48,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (ep < 0 || hp <= 0)
-		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!";
+		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!\n";
 	else
 	{
 		std::cout << "beepboop, ClapTrap is reparing for " << amount << " health points!\n";
