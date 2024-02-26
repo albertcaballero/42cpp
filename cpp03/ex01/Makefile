@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = ScavTrap
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJDIR = temp/

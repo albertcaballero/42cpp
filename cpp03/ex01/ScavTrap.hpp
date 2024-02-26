@@ -4,11 +4,12 @@
 #include <iomanip>
 #include "ClapTrap.hpp"
 
-class ScavTrap : ClapTrap{
+class ScavTrap : public ClapTrap{
 public:
 	ScavTrap();
 	ScavTrap(std::string const& _name);
 	~ScavTrap();
+	void attack(std::string const &target);
 	ScavTrap operator=(ScavTrap const &old);
 	ScavTrap(ScavTrap const &old);
 	void guardGate();

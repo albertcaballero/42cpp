@@ -5,11 +5,11 @@ ClapTrap::ClapTrap(): hp(10), ad(0), ep(10), name("Pedro"){
 }
 
 ClapTrap::ClapTrap(std::string _nam): hp(10), ad(0), ep(10), name(_nam) {
-	std::cout << "Constructed a ClapTrap (string)\n";
+	std::cout << "Constructed a ClapTrap (string) " << name << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "Deconstructed a ClapTrap (dest)\n";
+	std::cout << "Deconstructed a ClapTrap (dest) " << name << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const& old)
@@ -30,7 +30,7 @@ ClapTrap ClapTrap::operator=(ClapTrap const& old){
 void ClapTrap::attack(const std::string& target)
 {
 	if (ep <= 0 || hp <= 0)
-		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!";
+		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!\n";
 	else
 	{
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing "\
@@ -41,17 +41,17 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap took " << amount << " of damage!\n";
+	std::cout << "ClapTrap " << name <<" took " << amount << " of damage!\n";
 	hp -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (ep < 0 || hp <= 0)
-		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!";
+		std::cout << "ClapTrap " << name<< " cannot attack because it has no energy!\n";
 	else
 	{
-		std::cout << "beepboop, ClapTrap is reparing for " << amount << " health points!\n";
+		std::cout << "beepboop, ClapTrap " << name << " is reparing for " << amount << " health points!\n";
 		ep--;
 	}
 }
