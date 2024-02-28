@@ -1,6 +1,6 @@
 NAME = FragTrap
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp
 OBJDIR = temp/
 OBJ = $(SRC:%.cpp=$(OBJDIR)%.o)
 DEPEND = $(OBJ:%.o=%.d)
