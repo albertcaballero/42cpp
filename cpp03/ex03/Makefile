@@ -1,6 +1,6 @@
-NAME = FragTrap
+NAME = DiamondTrap
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp ScavTrap.cpp
 OBJDIR = temp/
 OBJ = $(SRC:%.cpp=$(OBJDIR)%.o)
 DEPEND = $(OBJ:%.o=%.d)

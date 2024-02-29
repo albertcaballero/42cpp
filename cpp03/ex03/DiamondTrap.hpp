@@ -1,5 +1,5 @@
-#ifndef DiamondTRAP_H_
-#define DiamondTRAP_H_
+#ifndef DIAMONDTRAP_H_
+#define DIAMONDTRAP_H_
 
 #include <iomanip>
 #include "ClapTrap.hpp"
@@ -11,12 +11,11 @@ public:
 	DiamondTrap();
 	DiamondTrap(std::string const& _name);
 	~DiamondTrap();
-	void attack(std::string const &target);
 	DiamondTrap operator=(DiamondTrap const &old);
 	DiamondTrap(DiamondTrap const &old);
-	void guardGate();
+	void whoAmI();
 private:
-	int mode;
+	std::string name;
 };
 
 #endif

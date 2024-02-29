@@ -1,22 +1,20 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-	FragTrap twoB("2B");
-	FragTrap nines("9S");
-	ClapTrap adam("Adam");
+	std::cout  << "_____2B_______\n";
+	DiamondTrap twoB("2B");
+	std::cout  << "_____9S_______\n";
+	DiamondTrap nines; //default name = Lasaña
 
-	std::cout  << "\n================\n\n";
-	adam.attack("2B");
-	adam.beRepaired(12);
-	twoB.attack("Adam");
-	adam.takeDamage(20);
-	adam.attack("9S");
-	nines.attack("Adam");
-	adam.takeDamage(20);
-	adam.attack("9S");
+	std::cout  << "\n\033[38;5;190m================\033[0m\n\n";
+	twoB.whoAmI();
+	twoB.attack("Pietro");
 	twoB.highFivesGuys();
-	nines.highFivesGuys();
-	std::cout  << "\n================\n\n";
+	nines.whoAmI();
+	nines.beRepaired(2);
+	nines.takeDamage(4);
+	std::cout  << "\n\033[38;5;190m================\033[0m\n\n";
 }

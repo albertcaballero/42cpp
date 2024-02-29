@@ -1,18 +1,18 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("Lasaña"){
+DiamondTrap::DiamondTrap() : name("Lasaña"){
 	hp = 100;
 	ep = 50;
-	ad = 20;
-	mode = 0;
+	ad = 30;
+	ClapTrap::name = "Lasaña_clap_name";
 	std::cout << "Created a DiamondTrap (default)\n";
 }
 
-DiamondTrap::DiamondTrap(std::string const& _name) : ClapTrap(_name){
+DiamondTrap::DiamondTrap(std::string const& _name) : name(_name){
 	hp = 100;
 	ep = 50;
-	ad = 20;
-	mode = 0;
+	ad = 30;
+	ClapTrap::name = _name + "_clap_name";
 	std::cout << "Created a DiamondTrap (string)\n";
 }
 
@@ -34,19 +34,8 @@ DiamondTrap::~DiamondTrap(){
 	std::cout << "Destroyed a DiamondTrap (destructor), poor thing :(\n";
 }
 
-void DiamondTrap::guardGate()
+void DiamondTrap::whoAmI()
 {
-	std::cout << name << " entering Gate Keeper mode\n";
-	mode = 1;
+	std::cout << "I am (inevitable) " << name << " and also " << ClapTrap::name << std::endl;
 }
 
-void DiamondTrap::attack(std::string const& target)
-{
-	if (mode == 1)
-	{
-		std::cout << name << " cannot attack because it is in guard mode\n";
-		return ;
-	}
-	std::cout << "DiamondTrap " << name << " attacked " << target << " dealing " << ad << " points of damage!";
-	std::cout << " crazyy!\n";
-}

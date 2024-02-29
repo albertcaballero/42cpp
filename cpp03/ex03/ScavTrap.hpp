@@ -4,7 +4,7 @@
 #include <iomanip>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : public virtual ClapTrap{
 public:
 	ScavTrap();
 	ScavTrap(std::string const& _name);

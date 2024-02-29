@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(std::string const& _name) : ClapTrap(_name){
 }
 
 ScavTrap ScavTrap::operator=(ScavTrap const &old){
-	std::cout << "Duplicated a ScavTrap (default)\n";
+	std::cout << "Duplicated a ScavTrap (duplicate)\n";
 	ScavTrap n(old);
 	return n;
 }
