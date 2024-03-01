@@ -53,7 +53,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (ep <= 0)
 		std::cout << "ClapTrap " << name<< " cannot be repaired because it has no energy!\n";
-	if (hp <= 0)
+	else if (hp <= 0)
 		std::cout << "ClapTrap " << name<< " cannot be repaired because it has no health!\n";
 	else
 	{

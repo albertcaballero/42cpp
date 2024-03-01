@@ -36,6 +36,6 @@ DiamondTrap::~DiamondTrap(){
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "I am (inevitable) " << name << " and also " << ClapTrap::name << std::endl;
+	std::cout << name << " or not " << ClapTrap::name << "? that is the question" << std::endl;
 }
 
