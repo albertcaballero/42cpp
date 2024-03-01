@@ -1,8 +1,9 @@
-NAME = DiamondTrap
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp ScavTrap.cpp
+NAME = Animals
+CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98 
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
-OBJ = $(SRC:%.cpp=$(OBJDIR)%.o)
+OBJ = $(TSRC:%.cpp=$(OBJDIR)%.o)
 DEPEND = $(OBJ:%.o=%.d)
 
 all: $(OBJDIR) $(NAME)
@@ -14,6 +15,7 @@ $(NAME): $(OBJ)
 	c++ $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR)%.o: %.cpp Makefile
+	@mkdir -p $(dir $@)
 	c++ $(CFLAGS) -MMD -c $< -o $@
 
 clean:
