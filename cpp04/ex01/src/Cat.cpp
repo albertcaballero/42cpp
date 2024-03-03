@@ -2,16 +2,19 @@
 
 Cat::Cat() {
 	type = "Cat";
+	brain = new Brain();
 	std::cout << "Cat default constructor called\n";
 }
 
 Cat::~Cat(){
 	std::cout << "Cat destructor called\n";
+	delete brain;
 }
 
 Cat::Cat(Cat const& old)
 {
 	this->type = old.type;
+	this->brain = old.brain;
 	std::cout << "Cat copy constructor called\n";
 }
 
@@ -25,4 +28,10 @@ Cat Cat::operator=(Cat const& old)
 void Cat::makeSound() const
 {
 	std::cout << "Meooooow\n";
+}
+
+void Cat::think()
+{
+	for (int i = 0; i < 100; ++i)
+		std::cout << brain->ideas[i]
 }

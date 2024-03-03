@@ -11,6 +11,8 @@ Brain::~Brain(){
 
 Brain::Brain(Brain const& old)
 {
+	for (int i = 0; i < 100; ++i)
+		this->ideas[i] = old.ideas[i];
 	std::cout << "Brain copy constructor called\n";
 }
 
@@ -32,4 +34,9 @@ void	Brain::fill_ideas()
 		else
 			ideas[i] = "I want to play!";
 	}
+}
+
+void Brain::print_ideas()
+{
+	for (int i = 0; i < 100; ++i)
 }

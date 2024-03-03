@@ -1,6 +1,6 @@
 NAME = Animals
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
 OBJ = $(TSRC:%.cpp=$(OBJDIR)%.o)

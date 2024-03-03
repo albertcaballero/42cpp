@@ -6,25 +6,18 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* doog = new Dog();
-	const Animal* cat = new Cat();
-	const WrongAnimal* lion = new WrongCat();
+	int size = 50;
+	const Animal* meta = new Animal[size];
 	std::cout << std::endl;
-
-	std::cout << "doog type: " << doog->getType() << std::endl;
-	std::cout << "cat type: " << cat->getType() << std::endl;
-	cat->makeSound(); //will output the cat sound!
-	doog->makeSound();
-	std::cout << "meta type: " << meta->getType() << std::endl;
-	meta->makeSound();
-	std::cout << "lion type: " << lion->getType() << std::endl;
-	lion->makeSound();
+	for (int i = 0; i < size; ++i)
+	{
+		if (i < size / 2)
+			meta[i] = Dog();
+		else
+			meta[i] = Cat();
+	}
 
 	std::cout << std::endl;
-	delete meta;
-	delete doog;
-	delete cat;
-	delete lion;
+	delete[] meta;
 	return 0;
 }

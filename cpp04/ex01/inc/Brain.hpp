@@ -13,6 +13,7 @@ public:
 	Brain operator=(Brain const& old);
 	
 	void fill_ideas();
+	void print_ideas();
 };
 
 #endif

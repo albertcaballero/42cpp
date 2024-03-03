@@ -2,16 +2,19 @@
 
 Dog::Dog() {
 	type = "Dog";
+	brain = new Brain();
 	std::cout << "Dog default constructor called\n";
 }
 
 Dog::~Dog(){
 	std::cout << "Dog destructor called\n";
+	delete brain;
 }
 
 Dog::Dog(Dog const& old)
 {
 	this->type = old.type;
+	this->brain = old.brain;
 	std::cout << "Dog copy constructor called\n";
 }
 
