@@ -7,17 +7,19 @@
 int main()
 {
 	int size = 50;
-	const Animal* meta = new Animal[size];
+	const Animal* meta[size];
 	std::cout << std::endl;
 	for (int i = 0; i < size; ++i)
 	{
 		if (i < size / 2)
-			meta[i] = Dog();
+			meta[i] = new Dog();
 		else
-			meta[i] = Cat();
+			meta[i] = new Cat();
 	}
 
 	std::cout << std::endl;
-	delete[] meta;
+	for (int i = 0; i < size; ++i) {
+        delete meta[i];
+    }
 	return 0;
 }
