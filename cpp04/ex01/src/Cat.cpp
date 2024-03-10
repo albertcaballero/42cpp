@@ -32,6 +32,5 @@ void Cat::makeSound() const
 
 void Cat::think()
 {
-	for (int i = 0; i < 100; ++i)
-		std::cout << brain->ideas[i]
+	brain->print_ideas();
 }

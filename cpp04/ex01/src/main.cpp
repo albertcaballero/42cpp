@@ -6,7 +6,7 @@
 
 int main()
 {
-	int size = 50;
+	int size = 10;
 	const Animal* meta[size];
 	std::cout << std::endl;
 	for (int i = 0; i < size; ++i)
@@ -22,7 +22,10 @@ int main()
 	for (int i = 0; i < size; ++i) {
         delete meta[i];
     }
+
+	Dog test;
+	Dog deep = test;
+	std::cout << &test << " and " << &deep <<std::endl;
 	return 0;
 }
 
-/* Animals have to delete Dogs/Cats, which have to delete brains, which have to delete ideas*/

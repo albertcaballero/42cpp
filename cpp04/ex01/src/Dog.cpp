@@ -29,3 +29,8 @@ void Dog::makeSound() const
 {
 	std::cout << "woof woof\n";
 }
+
+void Dog::think()
+{
+	brain->print_ideas();
+}

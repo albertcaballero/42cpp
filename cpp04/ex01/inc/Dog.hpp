@@ -11,7 +11,7 @@ public:
 	~Dog();
 	Dog(Dog const& old);
 	Dog operator=(Dog const& old);
-	void makeSound() const;
+	virtual void makeSound() const;
 	void think();
 private:
 	Brain *brain;
