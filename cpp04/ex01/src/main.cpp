@@ -16,6 +16,7 @@ int main()
 		else
 			meta[i] = new Cat();
 	}
+	std::cout << std::endl;
 
 	std::cout << std::endl;
 	for (int i = 0; i < size; ++i) {
@@ -23,3 +24,5 @@ int main()
     }
 	return 0;
 }
+
+/* Animals have to delete Dogs/Cats, which have to delete brains, which have to delete ideas*/

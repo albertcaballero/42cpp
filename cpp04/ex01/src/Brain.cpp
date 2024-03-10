@@ -38,5 +38,6 @@ void	Brain::fill_ideas()
 
 void Brain::print_ideas()
 {
-	for (int i = 0; i < 100; ++i)
+	for (int i = 0; i < 100; ++i){
+		std::cout << ideas[i];}
 }
