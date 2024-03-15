@@ -7,7 +7,7 @@
 int main()
 {
 	int size = 10;
-	const Animal* meta[size];
+	const AAnimal* meta[size];
 	std::cout << std::endl;
 	for (int i = 0; i < size; ++i)
 	{
