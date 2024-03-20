@@ -3,11 +3,9 @@
 	// Character(Character const& old);
 	// Character operator=(Character const& old);
 
-	// void equip(AMateria* m);
-	// void unequip(int idx);
-	// void use(int idx, ICharacter& target);
-
 Character::Character() : _name("Cloud"){
+	for (int i = 0; i < 4; ++i)
+		inventory[i] = NULL;
 	std::cout << "Character Default Constructor called\n";
 }
 
@@ -16,13 +14,10 @@ Character::~Character() {
 }
 
 Character::Character(std::string const& name): _name(name){
+	for (int i = 0; i < 4; ++i)
+		inventory[i] = NULL;
 	std::cout << "Character String Constructor called\n";
 }
-
-// Character::Character(Character const& old){
-// 	std::cout << "Character Copy Constructor called\n";
-// 	// UNFINISHED
-// }
 
 std::string const& Character::getName() const {
 	return (_name);
@@ -30,18 +25,37 @@ std::string const& Character::getName() const {
 
 void Character::equip(AMateria* m)
 {
-	/*UNFINISHED*/
+	if (!m)
+		return;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (inventory[i] == NULL)
+		{
+			inventory[i] = m;
+			return;
+		}
+		if (i == 3){
+			std::cout << "inventory is full!\n";
+			return;
+		}
+	}
 	return;
 }
 
 void Character::unequip(int idx)
 {
-	/*UNFINISHED*/
+	if (idx < 0 || idx > 3)
+		return;
+	// floor[idx] = inventory[idx];
+	inventory[idx] = NULL;
 	return;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	/*UNFINISHED*/
-	return;
+	if (idx < 0 || idx > 3)
+		return;
+	if (inventory[idx] == NULL)
+		return;
+	inventory[idx]->use(target);
 }
