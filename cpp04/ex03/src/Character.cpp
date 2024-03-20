@@ -27,3 +27,21 @@ Character::Character(std::string const& name): _name(name){
 std::string const& Character::getName() const {
 	return (_name);
 }
+
+void Character::equip(AMateria* m)
+{
+	/*UNFINISHED*/
+	return;
+}
+
+void Character::unequip(int idx)
+{
+	/*UNFINISHED*/
+	return;
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	/*UNFINISHED*/
+	return;
+}
