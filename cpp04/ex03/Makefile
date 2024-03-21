@@ -1,4 +1,4 @@
-NAME = Animals
+NAME = Materias
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98 
 SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 TSRC = $(addprefix src/,$(SRC))

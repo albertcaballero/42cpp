@@ -20,3 +20,8 @@ AMateria::AMateria(AMateria const &old) {
 std::string const &AMateria::getType() const{
 	return _type;
 }
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "used raw materia at " << target.getName() << std::endl;
+}

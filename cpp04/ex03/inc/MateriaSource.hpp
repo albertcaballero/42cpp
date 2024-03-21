@@ -4,6 +4,8 @@
 #include <iostream>
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 class AMateria;
 class IMateriaSource;
