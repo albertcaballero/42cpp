@@ -15,9 +15,9 @@ int main()
 	std::cout << "\n===============================" << std::endl << std::endl;
 
 	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());//leaks
 
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("ice"); //leaks
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
