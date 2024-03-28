@@ -5,14 +5,14 @@ MateriaSource::MateriaSource(){
 }
 
 MateriaSource::~MateriaSource(){
-	for (int i = 0; i < 4; ++i)
+/* 	for (int i = 0; i < 4; ++i)
 	{
 		if (inventory[i] != NULL)
 		{
 			delete inventory[i];
 			inventory[i] = NULL;
 		}
-	}
+	} */
 	std::cout << "MateriaSource default destructor called\n";
 }
 

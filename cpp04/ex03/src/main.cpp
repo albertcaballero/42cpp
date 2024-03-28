@@ -30,12 +30,10 @@ int main()
 	me->use(10, *me); //no output bc outside of range
 
 	std::cout << std::endl << "==============================="  << std::endl;
-	std::cout << "=========DELETE BOB==========\n";
 	delete bob;
-	std::cout << "=======DELETE ME===========\n";
 	delete me;
-	std::cout << "==========DELETE SRC=========\n";
 	delete src;
+	delete tmp;
 	return 0;
 }
 
