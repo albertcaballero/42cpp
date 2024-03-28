@@ -13,7 +13,7 @@ protected:
 public:
 	AMateria(std::string const & type);
 	AMateria();
-	~AMateria();
+	virtual ~AMateria();
 	AMateria(AMateria const &old);
 
 	std::string const & getType() const;

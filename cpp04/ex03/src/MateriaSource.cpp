@@ -5,6 +5,14 @@ MateriaSource::MateriaSource(){
 }
 
 MateriaSource::~MateriaSource(){
+	for (int i = 0; i < 4; ++i)
+	{
+		if (inventory[i] != NULL)
+		{
+			delete inventory[i];
+			inventory[i] = NULL;
+		}
+	}
 	std::cout << "MateriaSource default destructor called\n";
 }
 
@@ -17,7 +25,10 @@ MateriaSource::MateriaSource(MateriaSource const& old){
 MateriaSource MateriaSource::operator=(MateriaSource const& old){
 	MateriaSource creat;
 	for (int i = 0; i < 4; ++i)
+	{
+		//delete creat.inventory[] or take to trash/floor
 		creat.inventory[i] = old.inventory[i];
+	}
 	std::cout << "MateriaSource = constructor called\n";
 	return creat;
 }

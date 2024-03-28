@@ -1,7 +1,5 @@
 #include "Character.hpp"
 
-	// Character(Character const& old);
-	// Character operator=(Character const& old);
 
 Character::Character() : _name("Cloud"){
 	for (int i = 0; i < 4; ++i)
@@ -10,6 +8,14 @@ Character::Character() : _name("Cloud"){
 }
 
 Character::~Character() {
+	for (int i = 0; i < 4; ++i)
+	{
+		if (inventory[i] != NULL)
+		{
+			delete inventory[i];
+			inventory[i] = NULL;
+		}
+	}
 	std::cout << "Character Default Destructor called\n";
 }
 
@@ -18,6 +24,9 @@ Character::Character(std::string const& name): _name(name){
 		inventory[i] = NULL;
 	std::cout << "Character String Constructor called\n";
 }
+
+// Character(Character const& old);
+// Character operator=(Character const& old);
 
 std::string const& Character::getName() const {
 	return (_name);
@@ -57,5 +66,6 @@ void Character::use(int idx, ICharacter& target)
 		return;
 	if (inventory[idx] == NULL)
 		return;
+	std::cout << "(" << _name << ") ";
 	inventory[idx]->use(target);
 }
