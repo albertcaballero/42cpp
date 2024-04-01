@@ -8,14 +8,6 @@ Character::Character() : _name("Cloud"){
 }
 
 Character::~Character() {
-/* 	for (int i = 0; i < 4; ++i)
-	{
-		if (inventory[i] != NULL)
-		{
-			delete inventory[i];
-			inventory[i] = NULL;
-		}
-	} */
 	std::cout << "Character Default Destructor called\n";
 }
 
@@ -25,8 +17,25 @@ Character::Character(std::string const& name): _name(name){
 	std::cout << "Character String Constructor called\n";
 }
 
-// Character(Character const& old);
-// Character operator=(Character const& old);
+Character::Character(Character const& old)
+{
+	for (int i = 0; i < 4; ++i)
+		inventory[i] = old.inventory[i];
+	std::cout << "Character copy constructor called\n";
+}
+Character &Character::operator=(Character const& old)
+{
+	if (this == &old)
+		return *this;
+	this->_name = old.getName();
+	for (int i = 0; i < 4; ++i)
+	{
+		//delete this->inventory[] or take to trash/floor
+		this->inventory[i] = old.inventory[i];
+	}
+	std::cout << "Character = constructor called\n";
+	return *this;
+}
 
 std::string const& Character::getName() const {
 	return (_name);
@@ -35,7 +44,10 @@ std::string const& Character::getName() const {
 void Character::equip(AMateria* m)
 {
 	if (!m)
+	{
+		std::cout << "cannot equip, no materia given" << std::endl;
 		return;
+	}
 	for (int i = 0; i < 4; ++i)
 	{
 		if (inventory[i] == NULL)
@@ -63,9 +75,15 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
+	{
+		std::cout << "cannot use, index out of range" << std::endl;
 		return;
+	}
 	if (inventory[idx] == NULL)
+	{
+		std::cout << "cannot use, slot not assigned" << std::endl;
 		return;
+	}
 	std::cout << "(" << _name << ") ";
 	inventory[idx]->use(target);
 }

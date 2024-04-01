@@ -22,21 +22,25 @@ MateriaSource::MateriaSource(MateriaSource const& old){
 	std::cout << "MateriaSource copy constructor called\n";
 }
 
-MateriaSource MateriaSource::operator=(MateriaSource const& old){
-	MateriaSource creat;
+MateriaSource &MateriaSource::operator=(MateriaSource const& old){
+	if (this == &old)
+		return *this;
 	for (int i = 0; i < 4; ++i)
 	{
-		//delete creat.inventory[] or take to trash/floor
-		creat.inventory[i] = old.inventory[i];
+		//delete this->inventory[] or take to trash/floor
+		this->inventory[i] = old.inventory[i];
 	}
 	std::cout << "MateriaSource = constructor called\n";
-	return creat;
+	return *this;
 }
 
 void MateriaSource::learnMateria(AMateria* old)
 {
 	if (!old)
+	{
+		std::cout << "cannot learn, no materia given" << std::endl;
 		return;
+	}
 	for (int i = 0; i < 4; ++i)
 	{
 		if (inventory[i] == NULL)
