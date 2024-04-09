@@ -1,5 +1,5 @@
 NAME = Bureaucrats
-CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98 
+CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98  -pedantic
 SRC = main.cpp Bureaucrats.cpp
 TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
