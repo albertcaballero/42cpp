@@ -1,6 +1,6 @@
 NAME = Bureaucrats
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98  -pedantic
-SRC = main.cpp Bureaucrat.cpp From.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
 OBJ = $(TSRC:%.cpp=$(OBJDIR)%.o)

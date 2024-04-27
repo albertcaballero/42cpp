@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int signGrade, int exeGrade) : _name(name), _exeGrade(exeGrade), _signed(false) {
+Form::Form(std::string name, int signGrade, int exeGrade) : _name(name), _signed(false), _exeGrade(exeGrade) {
 	if (signGrade> 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else if (signGrade< 1)
@@ -9,7 +9,7 @@ Form::Form(std::string name, int signGrade, int exeGrade) : _name(name), _exeGra
 		_signGrade = signGrade;
 }
 
-Form::Form() : _name("form1"), _signGrade(92), _exeGrade(23), _signed(false) {
+Form::Form() : _name("form1"), _signed(false), _signGrade(92), _exeGrade(23) {
 	// std::cout << "Form constructor called" << std::endl;
 }
 
