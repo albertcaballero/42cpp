@@ -1,4 +1,4 @@
-NAME = Forms
+NAME = Bureaucrats
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98  -pedantic
 SRC = main.cpp Bureaucrat.cpp Form.cpp
 TSRC = $(addprefix src/,$(SRC))
