@@ -14,14 +14,14 @@ int	main(void)
 		std::cout << boss;
 		std::cout << basicForm;
 		std::cout << advancedForm;
-		std::cout << std::endl;
+		std::cout << "====================" << std::endl;
 
 
 		rookie.signForm(basicForm);
 		rookie.signForm(advancedForm);
 		boss.signForm(advancedForm);
 	
-		std::cout << std::endl;
+		std::cout << "====================" << std::endl;
 		std::cout << basicForm;
 		std::cout << advancedForm;
 	}
