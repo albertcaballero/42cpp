@@ -1,21 +1,39 @@
 #include "Intern.hpp"
 
-AForm *Intern::createShrubberyForm(){
+Intern::Intern(){}
 
+Intern::~Intern(){}
+
+Intern &Intern::operator=(Intern const &old){
+	if (&old == this){
+		return *this;
+	}
+	return *this;
 }
 
-AForm *Intern::createPardonForm(){
-
+AForm *Intern::createShrubberyForm(std::string target){
+	ShrubberyCreationForm *shrub = new ShrubberyCreationForm(target);
+	return shrub;
 }
 
-AForm *Intern::createRobotomyForm(){
+AForm *Intern::createPardonForm(std::string target){
+	PresidentialPardonForm *pardon = new PresidentialPardonForm(target);
+	return pardon;
+}
 
+AForm *Intern::createRobotomyForm(std::string target){
+	RobotomyRequestForm *robotomy = new RobotomyRequestForm(target);
+	return robotomy;
+}
+
+const char *Intern::NonExistentForm::what() const throw(){
+	return "This form type doesn't exist";
 }
 
 AForm *Intern::makeForm(std::string name, std::string target){
 	Intern tmp;
 	AForm *form;
-	AForm* (Intern::*fnts[])(void) = {
+	AForm* (Intern::*fnts[])(std::string) = {
 		&Intern::createShrubberyForm,
 		&Intern::createPardonForm,
 		&Intern::createRobotomyForm
@@ -30,9 +48,10 @@ AForm *Intern::makeForm(std::string name, std::string target){
 	{
 		if (name == types[i])
 		{
-			form = (tmp.*fnts[i])();
-			return;
+			form = (tmp.*fnts[i])(target);
+			std::cout << "Intern creates " << name << std::endl;
+			return form;
 		}
 	}
-	std::cout << "Intern creates " << name << std::endl;
+	throw (Intern::NonExistentForm());
 }

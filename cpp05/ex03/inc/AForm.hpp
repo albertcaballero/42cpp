@@ -14,6 +14,7 @@ private:
 	int			_exeGrade;
 public:
 	AForm();
+	AForm(std::string name);
 	AForm(std::string name, int signGrade, int exeGrade);
 	virtual ~AForm();
 	AForm &operator=(AForm const& old);

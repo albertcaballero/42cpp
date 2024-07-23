@@ -13,6 +13,10 @@ AForm::AForm() : _name("form1"), _signed(false), _signGrade(92), _exeGrade(23) {
 	// std::cout << "AForm constructor called" << std::endl;
 }
 
+AForm::AForm(std::string name): _name(name), _signed(false), _signGrade(92), _exeGrade(23){
+	
+}
+
 AForm::~AForm() {
 	// std::cout << "AForm destructor called" << std::endl;
 }
