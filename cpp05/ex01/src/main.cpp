@@ -3,20 +3,20 @@
 
 int	main(void)
 {
+
+	Bureaucrat	rookie("rookie", 140);
+	Bureaucrat	boss("Boss", 1);
+	Form		basicForm("Decl. of independence", 140, 150);
+	Form		advancedForm("Geneva convention", 10, 1);
+
+	std::cout << rookie;
+	std::cout << boss;
+	std::cout << basicForm;
+	std::cout << advancedForm;
+	std::cout << "====================" << std::endl;
+
 	try
 	{
-		Bureaucrat	rookie("rookie", 140);
-		Bureaucrat	boss("Boss", 1);
-		Form		basicForm("Decl. of independence", 140, 150);
-		Form		advancedForm("Geneva convention", 10, 1);
-
-		std::cout << rookie;
-		std::cout << boss;
-		std::cout << basicForm;
-		std::cout << advancedForm;
-		std::cout << "====================" << std::endl;
-
-
 		rookie.signForm(basicForm);
 		rookie.signForm(advancedForm);
 		boss.signForm(advancedForm);

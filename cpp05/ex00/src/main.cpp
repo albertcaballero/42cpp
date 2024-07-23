@@ -8,10 +8,10 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "================= Increment imposible" << std::endl;
+	std::cout << std::endl << "================= Increment impossible" << std::endl;
 	try	{
 		Bureaucrat test("PETER", 1);
 
@@ -21,10 +21,10 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "================= Increment posible" << std::endl;
+	std::cout << std::endl << "================= Increment possible" << std::endl;
 	try	{
 		Bureaucrat test("PETER", 2);
 
@@ -34,10 +34,10 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "================= Decrement imposible" << std::endl;
+	std::cout << std::endl << "================= Decrement impossible" << std::endl;
 	try	{
 		Bureaucrat test("PETER", 150);
 
@@ -47,10 +47,10 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "================= Decrement posible" << std::endl;
+	std::cout << std::endl << "================= Decrement possible" << std::endl;
 	try	{
 		Bureaucrat test("PETER", 149);
 
@@ -60,7 +60,7 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 
 	std::cout << std::endl << "================= OTHER TESTS" << std::endl;
@@ -77,6 +77,6 @@ int	main(void)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCETION: " << e.what() << std::endl;
 	}
 }
