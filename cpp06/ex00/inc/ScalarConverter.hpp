@@ -2,6 +2,7 @@
 #define SCALARCONVERTER_H_
 
 #include <iostream>
+#include <limits>
 
 class ScalarConverter{
 protected:

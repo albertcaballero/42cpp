@@ -13,7 +13,8 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter& old){
 
 int	findType(std::string s){
 	int point = 0;
-	bool f = false;
+	if (s.length() == 1)
+		return 1;
 	for (int i = 0; i < s.length(); ++i){
 		if (s[i] == '.')
 			point++;
@@ -24,9 +25,43 @@ int	findType(std::string s){
 				return -1;
 		}
 	}
-	if (point > 0)
+	if (point == 1)
 		return 4;
+	else if (point > 1)
+		return -1;
 	return 2;
+}
+
+void displayError(std::string s){
+
+}
+
+char convertChar(std::string s){
+	return (s[0]);
+}
+
+int convertInt(std::string s){
+	return atoi(s.c_str());
+}
+
+float convertFloat(std::string s){
+	if (s == "-inff")
+		return -1 * std::numeric_limits<double>::infinity();
+	if (s == "+inff" || s=="inff")
+		return std::numeric_limits<double>::infinity();
+	if (s == "nanf")
+		return std::numeric_limits<double>::quiet_NaN();
+	return atof(s.c_str());
+}
+
+double convertDouble(std::string s){
+	if (s == "-inf")
+		return -1 * std::numeric_limits<double>::infinity();;
+	if (s == "+inf" || s=="inf")
+		return std::numeric_limits<double>::infinity();;
+	if (s == "nan")
+		return std::numeric_limits<double>::quiet_NaN();
+	return atof(s.c_str());
 }
 
 // 1 char, 2 int, 3 float, 4 double
@@ -45,16 +80,16 @@ void ScalarConverter::convert(std::string str){
 			displayError(str);
 			break;
 		case 1:
-			convertChar(str);
+			ch = convertChar(str);
 			break;
 		case 2:
-			convertInt(str);
+			in = convertInt(str);
 			break;
 		case 3:
-			convertFloat(str);
+			fl = convertFloat(str);
 			break;
 		case 4:
-			convertDouble(str);
+			dl = convertDouble(str);
 			break;
 		
 	}
