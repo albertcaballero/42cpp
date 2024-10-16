@@ -2,19 +2,16 @@
 #define SCALARCONVERTER_H_
 
 #include <iostream>
-#include <limits>
+#include "utils.hpp"
 
 class ScalarConverter{
-protected:
+private:
+	ScalarConverter(void);
+	ScalarConverter(ScalarConverter &old);
+	ScalarConverter operator=(ScalarConverter &old);
 	~ScalarConverter();
 public:
-	ScalarConverter();
-	ScalarConverter &operator=(ScalarConverter& old);
-	ScalarConverter(ScalarConverter& old);
-
-	static void convert(std::string);
+	static void convert(std::string str);
 };
-
-std::ostream &operator<<(std::ostream &out, AForm const &form);
 
 #endif

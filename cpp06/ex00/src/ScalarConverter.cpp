@@ -1,96 +1,113 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(){}
-ScalarConverter::~ScalarConverter(){}
-ScalarConverter::ScalarConverter(ScalarConverter& old){
-	(void)old;
-}
-ScalarConverter &ScalarConverter::operator=(ScalarConverter& old){
-	if (&old == this)
-		return *this;
-	return *this;
+ScalarConverter::ScalarConverter(void){
+    std::cout << "Default Constructor" << std::endl;
 }
 
-int	findType(std::string s){
-	int point = 0;
-	if (s.length() == 1)
-		return 1;
-	for (int i = 0; i < s.length(); ++i){
-		if (s[i] == '.')
-			point++;
-		if (s[i] == 'f'){
-			if (point == 0)
-				return 1;
-			else
-				return -1;
-		}
-	}
-	if (point == 1)
-		return 4;
-	else if (point > 1)
-		return -1;
-	return 2;
+ScalarConverter::ScalarConverter(ScalarConverter &old){
+    std::cout << "Copy Constructor" << std::endl;
+    *this = old;
 }
 
-void displayError(std::string s){
-
+ScalarConverter ScalarConverter::operator=(ScalarConverter &old){
+    (void)old;
+    std::cout << "Copy Operator" << std::endl;
+    return (*this);
 }
 
-char convertChar(std::string s){
-	return (s[0]);
-}
-
-int convertInt(std::string s){
-	return atoi(s.c_str());
-}
-
-float convertFloat(std::string s){
-	if (s == "-inff")
-		return -1 * std::numeric_limits<double>::infinity();
-	if (s == "+inff" || s=="inff")
-		return std::numeric_limits<double>::infinity();
-	if (s == "nanf")
-		return std::numeric_limits<double>::quiet_NaN();
-	return atof(s.c_str());
-}
-
-double convertDouble(std::string s){
-	if (s == "-inf")
-		return -1 * std::numeric_limits<double>::infinity();;
-	if (s == "+inf" || s=="inf")
-		return std::numeric_limits<double>::infinity();;
-	if (s == "nan")
-		return std::numeric_limits<double>::quiet_NaN();
-	return atof(s.c_str());
+ScalarConverter::~ScalarConverter(){
+    std::cout << "Default Destructor" << std::endl;    
 }
 
 // 1 char, 2 int, 3 float, 4 double
 void ScalarConverter::convert(std::string str){
-	float fl = 0;
-	int in = 0;
-	char ch = 0;
-	double dl = 0;
-
 	if (str.length() == 0)
 		return;
 	int type = findType(str);
 	switch (type)
 	{
-		case -1:
+		case T_ERROR:
 			displayError(str);
 			break;
-		case 1:
-			ch = convertChar(str);
+		case T_CHAR:
+			convertChar(str);
 			break;
-		case 2:
-			in = convertInt(str);
+		case T_INT:
+			convertInt(str);
 			break;
-		case 3:
-			fl = convertFloat(str);
+		case T_FLOAT:
+			convertFloat(str);
 			break;
-		case 4:
-			dl = convertDouble(str);
+		case T_DOUBLE:
+			convertDouble(str);
 			break;
 		
 	}
+}
+
+void convertChar(std::string s){
+	char c = s[0];
+	if (c < 33 || c > 126)
+        std::cout << "Char: Non displayable" << std::endl;
+    else
+        std::cout << "Char: '" << c << "'" << std::endl;
+    std::cout << "Int: " << (int)c << std::endl;
+    std::cout << "Float: " << (float)c << ".0f" << std::endl;
+    std::cout << "Double: " << (double)c << ".0" << std::endl;
+}
+
+void convertInt(std::string s){
+	int num = std::atoi(s.c_str());
+	if (!isprint(num))
+		std::cout << "Char: Non displayable" << std::endl;
+	else
+		std::cout << "Char: '" << num << "'" << std::endl;
+	std::cout << "Int: " << num << std::endl;
+    std::cout << "Float: " << num << ".0f" << std::endl;
+    std::cout << "Double: " << num << ".0" << std::endl;
+}
+
+void convertFloat(std::string s){
+	float num = std::atof(s.c_str());
+	int numint = static_cast<int>(num);
+	if (!isprint(numint))
+		std::cout << "Char: Non displayable" << std::endl;
+	else
+		std::cout << "Char: '" << numint << "'" << std::endl;
+	std::cout << "Int: " << numint << std::endl;
+	std::cout << "Float: " << num << "f" << std::endl;
+    std::cout << "Double: " << static_cast<double>(num) << std::endl;
+}
+
+void convertDouble(std::string s){
+	double num = std::atof(s.c_str());
+	int numint = static_cast<int>(num);
+	if (!isprint(numint))
+		std::cout << "Char: Non displayable" << std::endl;
+	else
+		std::cout << "Char: '" << numint << "'" << std::endl;
+	std::cout << "Int: " << numint << std::endl;
+	std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl;
+    std::cout << "Double: " << num << std::endl;
+}
+
+void convertSpecial(std::string s){
+	std::cout << "Char: Non displayable" << std::endl;
+    std::cout << "Int: Non displayable" << std::endl;
+	if (s == "nan" || s == "nanf"){
+		std::cout << "Float: nanf" << std::endl;
+        std::cout << "Double: nan" << std::endl;
+	}
+	else if (s == "+inff" || s == "+inff"){
+		std::cout << "Float: +inff" << std::endl;
+        std::cout << "Double: +inf" << std::endl;
+	}
+	else if (s == "-inff" || s == "-inff"){
+		std::cout << "Float: -inff" << std::endl;
+        std::cout << "Double: -inf" << std::endl;
+	}
+}
+
+void displayError(std::string s){
+	std::cout << s << " is nothing!!" << std::endl;
 }
