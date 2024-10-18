@@ -1,6 +1,6 @@
-NAME = Bureaucrats
+NAME = array
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98  -pedantic
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Array.tpp
 TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
 OBJ = $(TSRC:%.cpp=$(OBJDIR)%.o)

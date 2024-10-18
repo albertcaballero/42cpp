@@ -2,11 +2,13 @@
 #define ARRAY_H_
 
 #include <iostream>
+#include <stdexcept>
 
 template <class T>
 class Array {
 private:
 	T* arr;
+	size_t _len;
 public:
 	Array();
 	Array(size_t n);

@@ -1,6 +1,6 @@
-NAME = Bureaucrats
+NAME = Base
 CFLAGS = -Wall -Wextra -Werror -Iinc/ -std=c++98  -pedantic
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Base.cpp
 TSRC = $(addprefix src/,$(SRC))
 OBJDIR = temp/
 OBJ = $(TSRC:%.cpp=$(OBJDIR)%.o)
