@@ -46,54 +46,70 @@ void ScalarConverter::convert(std::string str){
 }
 
 void convertChar(std::string s){
-	char c = s[0];
-	if (c < 33 || c > 126)
-        std::cout << "Char: Non displayable" << std::endl;
+	char numch = s[0];
+	char numint = static_cast<char>(numch);
+	float numf = static_cast<float>(numch);
+	double numd = static_cast<double>(numch);
+	if (!isprint(numch))
+        std::cout << "Char: Impossible" << std::endl;
     else
-        std::cout << "Char: '" << c << "'" << std::endl;
-    std::cout << "Int: " << (int)c << std::endl;
-    std::cout << "Float: " << (float)c << ".0f" << std::endl;
-    std::cout << "Double: " << (double)c << ".0" << std::endl;
+        std::cout << "Char: '" << numch << "'" << std::endl;
+    std::cout << "Int: " << numint << std::endl;
+    std::cout << "Float: " << numf << "f" << std::endl;
+    std::cout << "Double: " << numd << std::endl;
 }
 
 void convertInt(std::string s){
-	int num = std::atoi(s.c_str());
-	if (!isprint(num))
-		std::cout << "Char: Non displayable" << std::endl;
+	int numint = std::atoi(s.c_str());
+	char numch = static_cast<char>(numint);
+	float numf = static_cast<float>(numint);
+	double numd = static_cast<double>(numint);
+	if (!isprint(numch))
+		std::cout << "Char: Impossible" << std::endl;
 	else
-		std::cout << "Char: '" << num << "'" << std::endl;
-	std::cout << "Int: " << num << std::endl;
-    std::cout << "Float: " << num << ".0f" << std::endl;
-    std::cout << "Double: " << num << ".0" << std::endl;
+		std::cout << "Char: '" << numch << "'" << std::endl;
+	std::cout << "Int: " << numint << std::endl;
+    std::cout << "Float: " << numf << "f" << std::endl;
+    std::cout << "Double: " << numd<< std::endl;
 }
 
 void convertFloat(std::string s){
-	float num = std::atof(s.c_str());
-	int numint = static_cast<int>(num);
-	if (!isprint(numint))
-		std::cout << "Char: Non displayable" << std::endl;
+	float numf = std::atof(s.c_str());
+	int numint = static_cast<int>(numf);
+	char numch = static_cast<char>(numf);
+	double numd = static_cast<double>(numf);
+	if (!isprint(numf))
+		std::cout << "Char: Impossible" << std::endl;
 	else
-		std::cout << "Char: '" << numint << "'" << std::endl;
-	std::cout << "Int: " << numint << std::endl;
-	std::cout << "Float: " << num << "f" << std::endl;
-    std::cout << "Double: " << static_cast<double>(num) << std::endl;
+		std::cout << "Char: '" << numch << "'" << std::endl;
+	if (numint > INT_MAX || numint < INT_MIN)
+		std::cout << "Int: Impossible" << std::endl;
+	else
+		std::cout << "Int: " << numint << std::endl;
+	std::cout << "Float: " << numf << std::endl;
+    std::cout << "Double: " << numd << std::endl;
 }
 
 void convertDouble(std::string s){
-	double num = std::atof(s.c_str());
-	int numint = static_cast<int>(num);
+	double numd = std::atof(s.c_str());
+	float numf = static_cast<float>(numd); 
+	int numint = static_cast<int>(numd);
+	char numch = static_cast<char>(numd);
 	if (!isprint(numint))
-		std::cout << "Char: Non displayable" << std::endl;
+		std::cout << "Char: Impossible" << std::endl;
 	else
-		std::cout << "Char: '" << numint << "'" << std::endl;
-	std::cout << "Int: " << numint << std::endl;
-	std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl;
-    std::cout << "Double: " << num << std::endl;
+		std::cout << "Char: '" << numch << "'" << std::endl;
+	if (numint > INT_MAX || numint < INT_MIN)
+		std::cout << "Int: Impossible" << std::endl;
+	else
+		std::cout << "Int: " << numint << std::endl;
+	std::cout << "Float: " << numf << "f" << std::endl;
+    std::cout << "Double: " << numd << std::endl;
 }
 
 void convertSpecial(std::string s){
-	std::cout << "Char: Non displayable" << std::endl;
-    std::cout << "Int: Non displayable" << std::endl;
+	std::cout << "Char: Impossible" << std::endl;
+    std::cout << "Int: Impossible" << std::endl;
 	if (s == "nan" || s == "nanf"){
 		std::cout << "Float: nanf" << std::endl;
         std::cout << "Double: nan" << std::endl;
