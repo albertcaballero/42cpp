@@ -1,24 +1,24 @@
-#ifndef WHATEVER_H_
-#define WHATEVER_H_
+#ifndef ITER_H_
+#define ITER_H_
+
+#include <iostream>
 
 template <typename T>
-void swap(T &a, T &b)
+void iter(T *a, size_t len, void(*func)(T))
 {
-    T tmp = a;
-    a = b;
-    b = tmp;
+	try{
+		for (size_t i = 0; i < len; ++i){
+			func(a[i]);
+		}
+	} ( std::exception& e ) {
+		std::cout << "Out of bounds" << std::endl;
+	}
 }
 
 template <typename T>
-T min(T a, T b)
+void printElement(T a)
 {
-    return (a < b ? a : b);
-}
-
-template <typename T>
-T max(T a, T b)
-{
-    return (a > b ? a : b);
+	std::cout << a << std::endl;
 }
 
 #endif

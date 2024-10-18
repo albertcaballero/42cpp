@@ -1,21 +1,14 @@
-#include "whatever.hpp"
+#include "iter.hpp"
 #include <iostream>
 
-int main( void ) {
-	int a = 2;
-	int b = 3;
+int main(void)
+{
+	int arr[10];
 
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	for (int i = 0; i < 10; i++)
+		arr[i] = i;
+	iter(arr, 10, printElement);
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	return 0;
+	float flarr[10] = {1.4, 12.24, 132364.6, 13.423, 41234.24, 123.3, 90.645, 234.13, 1234.41, 1234.1};
+	iter(arr, 10, printElement);
 }
