@@ -8,7 +8,7 @@ template <class T>
 class Array {
 private:
 	T* arr;
-	size_t _len;
+	size_t _size;
 public:
 	Array();
 	Array(size_t n);
@@ -18,5 +18,7 @@ public:
 	size_t size();
 	T& operator[](size_t n) const;
 };
+
+#include "Array.tpp"
 
 #endif

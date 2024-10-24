@@ -10,7 +10,7 @@ void iter(T *a, size_t len, void(*func)(T))
 		for (size_t i = 0; i < len; ++i){
 			func(a[i]);
 		}
-	} ( std::exception& e ) {
+	}catch ( std::exception& e ) {
 		std::cout << "Out of bounds" << std::endl;
 	}
 }
