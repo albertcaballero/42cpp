@@ -2,6 +2,10 @@
 #define UTILS_H_
 
 #include <iostream>
+#include <sstream>
+#include <cstdlib>
+#include <climits>
+#include <cfloat>
 
 #define T_INT 1
 #define T_DOUBLE 2
@@ -12,6 +16,16 @@
 
 int	findType(std::string s);
 void displayError(std::string s);
+void convertChar(std::string s);
+void convertInt(std::string s);
+void convertFloat(std::string s);
+void convertDouble(std::string s);
+void convertSpecial(std::string s);
+
+bool check_special(std::string s);
+int check_double(std::string s);
+int check_float(std::string s);
+int check_int(std::string s);
 
 
 #endif

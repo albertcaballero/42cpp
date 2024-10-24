@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include "utils.hpp"
 
 ScalarConverter::ScalarConverter(void){
     std::cout << "Default Constructor" << std::endl;
@@ -122,8 +123,4 @@ void convertSpecial(std::string s){
 		std::cout << "Float: -inff" << std::endl;
         std::cout << "Double: -inf" << std::endl;
 	}
-}
-
-void displayError(std::string s){
-	std::cout << s << " is nothing!!" << std::endl;
 }

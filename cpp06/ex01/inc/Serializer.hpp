@@ -1,7 +1,8 @@
 #ifndef SERIALIZER_H_
 #define SERIALIZER_H_
 
-#include <iostream>
+# include <iostream>
+# include <stdint.h>
 
 typedef struct t_data{
 	int i;

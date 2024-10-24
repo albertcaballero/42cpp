@@ -6,7 +6,7 @@ int	findType(std::string s){
 		return T_CHAR;
 	if (check_special(s))
 		return T_SPECIAL;
-	for (int i = 0; i < s.length(); ++i){
+	for (size_t i = 0; i < s.length(); ++i){
 		if (s[i] == '.')
 			point++;
 	}
