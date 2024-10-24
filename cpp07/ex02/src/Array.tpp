@@ -12,7 +12,7 @@ Array<T>::Array(){
 template <typename T>
 Array<T>::Array(size_t n) {
 	arr = new T[n]();
-	_len = 0;
+	_len = n;
 }
 
 template <typename T>
