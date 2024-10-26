@@ -16,37 +16,37 @@ int main()
         deq.push_back(i);
     }
     try{
-        easyfind(vec, 12);
+        easyfind(vec, 12); //not find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
 
     try{
-        easyfind(lis, 123);
+        easyfind(lis, 123); //not find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
 
     try{
-        easyfind(deq, 7);
+        easyfind(deq, 7); //not find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
 
     try{
-        easyfind(vec, 6);
+        easyfind(vec, 6); //find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
 
     try{
-        easyfind(lis, 6);
+        easyfind(lis, 4); //find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }
 
     try{
-        easyfind(deq, 6);
+        easyfind(deq, 1); //find
     }catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
     }

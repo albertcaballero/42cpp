@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <climits>
 #include <cfloat>
+#include <iomanip>
 
 #define T_INT 1
 #define T_DOUBLE 2

@@ -48,7 +48,7 @@ void ScalarConverter::convert(std::string str){
 
 void convertChar(std::string s){
 	char numch = s[0];
-	char numint = static_cast<char>(numch);
+	int numint = static_cast<int>(numch);
 	float numf = static_cast<float>(numch);
 	double numd = static_cast<double>(numch);
 	if (!isprint(numch))
@@ -56,6 +56,7 @@ void convertChar(std::string s){
     else
         std::cout << "Char: '" << numch << "'" << std::endl;
     std::cout << "Int: " << numint << std::endl;
+	std::cout << std::fixed << std::setprecision(2);
     std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
@@ -65,13 +66,14 @@ void convertInt(std::string s){
 	char numch = static_cast<char>(numint);
 	float numf = static_cast<float>(numint);
 	double numd = static_cast<double>(numint);
-	if (!isprint(numch))
+	if (!isprint(numch) || (numint > 126 || numint < 32))
 		std::cout << "Char: Impossible" << std::endl;
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
 	std::cout << "Int: " << numint << std::endl;
+	std::cout << std::fixed << std::setprecision(2);
     std::cout << "Float: " << numf << "f" << std::endl;
-    std::cout << "Double: " << numd<< std::endl;
+    std::cout << "Double: " << numd<<std::endl;
 }
 
 void convertFloat(std::string s){
@@ -79,7 +81,7 @@ void convertFloat(std::string s){
 	int numint = static_cast<int>(numf);
 	char numch = static_cast<char>(numf);
 	double numd = static_cast<double>(numf);
-	if (!isprint(numf))
+	if (!isprint(numch) || (numf > 126 || numf < 32))
 		std::cout << "Char: Impossible" << std::endl;
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
@@ -87,7 +89,8 @@ void convertFloat(std::string s){
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "Int: " << numint << std::endl;
-	std::cout << "Float: " << numf << std::endl;
+	std::cout << std::fixed << std::setprecision(2);
+	std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
 
@@ -96,7 +99,7 @@ void convertDouble(std::string s){
 	float numf = static_cast<float>(numd); 
 	int numint = static_cast<int>(numd);
 	char numch = static_cast<char>(numd);
-	if (!isprint(numint))
+	if (!isprint(numch) || (numd > 126 || numd < 32))
 		std::cout << "Char: Impossible" << std::endl;
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
@@ -104,6 +107,7 @@ void convertDouble(std::string s){
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "Int: " << numint << std::endl;
+	std::cout << std::fixed << std::setprecision(2);
 	std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
