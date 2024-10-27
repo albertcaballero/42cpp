@@ -1,33 +1,26 @@
+#include "MutantStack.hpp"
+
 #include <iostream>
-#include "Span.hpp"
-#include <vector>
-#include <list>
-#include <deque>
 
 int main()
 {
-	try{
-		Span sp = Span(5);
-		sp.addNumber(2);
-		sp.addNumber(1);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
-		std::cout << "===================SP==========================" << std::endl;
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}catch(std::exception e){
-		std::cout << e.what() << std::endl;
-	}
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << "Top is " << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << "Size is " << mstack.size() << std::endl;
+	std::cout << "Is empty? " << mstack.empty() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
 
-	try{
-		Span dos = Span(200);
-		dos.addMany(9, 200);
-		std::cout << "=============================================" << std::endl;
-		std::cout << dos.shortestSpan() << std::endl;
-		std::cout << dos.longestSpan() << std::endl;
-	}catch(std::exception e){
-		std::cout << e.what() << std::endl;
-	}
-	return 0;
+    MutantStack<int>::iterator it = mstack.begin();
+	std::cout << "Full Content => ";
+    for (; it != mstack.end(); ++it){
+		std::cout << *it << ", ";
+    }
+	std::cout << std::endl;
+    return 0;
 }
