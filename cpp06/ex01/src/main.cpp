@@ -3,10 +3,10 @@
 
 int main( void )
 {
-    Data testing;
+    Data datas;
     
-    std::cout << "Ptr no serializer " << &testing << std::endl;
-    uintptr_t hola = Serializer::serialize(&testing);
-    std::cout << "Uintptr_t  " << hola << std::endl;
-    std::cout << "Ptr serializer " << Serializer::deserialize(hola) << std::endl;
+    std::cout << "Ptr to serializer " << &datas << std::endl;
+    uintptr_t uptrs = Serializer::serialize(&datas);
+    std::cout << "Uintptr_t  " << uptrs << std::endl;
+    std::cout << "Ptr serializer " << Serializer::deserialize(uptrs) << std::endl;
 }

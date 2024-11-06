@@ -42,6 +42,9 @@ void ScalarConverter::convert(std::string str){
 		case T_DOUBLE:
 			convertDouble(str);
 			break;
+		case T_SPECIAL:
+			convertSpecial(str);
+			break;
 		
 	}
 }
@@ -56,7 +59,7 @@ void convertChar(std::string s){
     else
         std::cout << "Char: '" << numch << "'" << std::endl;
     std::cout << "Int: " << numint << std::endl;
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
@@ -71,7 +74,7 @@ void convertInt(std::string s){
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
 	std::cout << "Int: " << numint << std::endl;
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd<<std::endl;
 }
@@ -85,11 +88,11 @@ void convertFloat(std::string s){
 		std::cout << "Char: Impossible" << std::endl;
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
-	if (numint > INT_MAX || numint < INT_MIN)
+	if (numd > INT_MAX || numd < INT_MIN)
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "Int: " << numint << std::endl;
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
@@ -103,11 +106,11 @@ void convertDouble(std::string s){
 		std::cout << "Char: Impossible" << std::endl;
 	else
 		std::cout << "Char: '" << numch << "'" << std::endl;
-	if (numint > INT_MAX || numint < INT_MIN)
+	if (numd > INT_MAX || numd < INT_MIN)
 		std::cout << "Int: Impossible" << std::endl;
 	else
 		std::cout << "Int: " << numint << std::endl;
-	std::cout << std::fixed << std::setprecision(2);
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "Float: " << numf << "f" << std::endl;
     std::cout << "Double: " << numd << std::endl;
 }
@@ -119,11 +122,11 @@ void convertSpecial(std::string s){
 		std::cout << "Float: nanf" << std::endl;
         std::cout << "Double: nan" << std::endl;
 	}
-	else if (s == "+inff" || s == "+inff"){
+	else if (s == "+inf" || s == "+inff"){
 		std::cout << "Float: +inff" << std::endl;
         std::cout << "Double: +inf" << std::endl;
 	}
-	else if (s == "-inff" || s == "-inff"){
+	else if (s == "-inf" || s == "-inff"){
 		std::cout << "Float: -inff" << std::endl;
         std::cout << "Double: -inf" << std::endl;
 	}

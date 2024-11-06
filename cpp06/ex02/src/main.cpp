@@ -25,6 +25,7 @@ void identify(Base* p){
 		type = "B";
 	else if (dynamic_cast<C*>(p))
 		type = "C";
+	std::cout= "C";
 	std::cout << "type: " << type << std::endl;
 }
 

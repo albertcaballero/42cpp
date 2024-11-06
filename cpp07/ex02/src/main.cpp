@@ -30,20 +30,20 @@ int main(int, char**)
             return 1;
         }
     }
+
     try
     {
+		std::cout << "accessing last element + 1" << std::endl;
         numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
+    }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
     }
+
     try
     {
+		std::cout << "accessing last element + 1" << std::endl;
         numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
+    }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
     }
 
