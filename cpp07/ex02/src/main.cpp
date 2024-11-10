@@ -22,33 +22,28 @@ int main(int, char**)
         Array<int> test(tmp);
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
+    for (int i = 0; i < MAX_VAL; i++){
+        if (mirror[i] != numbers[i]){
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
         }
     }
 
-    try
-    {
-		std::cout << "accessing last element + 1" << std::endl;
+    try{
+		std::cout << "=accessing negative element (-2)=" << std::endl;
         numbers[-2] = 0;
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
     }
 
-    try
-    {
-		std::cout << "accessing last element + 1" << std::endl;
+    try{
+		std::cout << "=accessing last element + 1=" << std::endl;
         numbers[MAX_VAL] = 0;
     }catch(const std::exception& e){
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
+    for (int i = 0; i < MAX_VAL; i++){
         numbers[i] = rand();
     }
 
