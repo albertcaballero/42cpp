@@ -14,6 +14,7 @@ public:
 	~BitcoinExchange();
 
 	float getValue(std::string);
+	std::pair<std::string, float> parseLine(std::string)
 };
 
 #endif

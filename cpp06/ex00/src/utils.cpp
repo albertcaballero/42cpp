@@ -58,7 +58,7 @@ int check_double(std::string s){
         if (isdigit(s[i]) == 0 && s[i] != '.')
             return (T_ERROR);
     }
-    return (T_FLOAT);
+    return (T_DOUBLE);
 }
 
 bool check_special(std::string s){
