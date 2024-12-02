@@ -7,7 +7,6 @@ int main(int argc, char **argv){
 		return;
 	}
 
-	std::string file(argv[1]);
 	
 }
 
@@ -29,6 +28,12 @@ int check_float(std::string s){
     return 1;
 }
 
-std::string parse_date(std::string line){
-	line.find("-");
+bool parse_date(std::string line){
+	for (size_t i = 0; i<line.length(); ++i){
+		if((i == 4 || i == 7) && line[i]!='-')
+			return false;
+		else if(!isnumber(line[i]) && line[i]!='-')
+			return false;
+	}
+	return true;
 }

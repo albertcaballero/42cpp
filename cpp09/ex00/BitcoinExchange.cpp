@@ -12,8 +12,6 @@ BitcoinExchange::BitcoinExchange(std::string fname){
 	while (std::getline(file, line, '\n'))
 	{
 		tmp = this->parseLine(line);
-		if (tmp == NULL)
-			return ;
 		_rates.insert(tmp);
 	}
 	file.close();
@@ -34,6 +32,6 @@ std::pair<std::string, float> BitcoinExchange::parseLine(std::string line){
 		throw (std::runtime_error("Incorrect format for input"));
 	par.first = line.substr(0, pos);
 	value = line.substr(pos, line.length());
-	
+
 	par.second = atof(value.c_str());
 }
