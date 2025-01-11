@@ -7,11 +7,9 @@ int main(int argc, char **argv){
 		std::cout << "Only 1 argument accepted\n";
 		return -1;
 	} 
-	(void) argv;
 	try{
 		BitcoinExchange ex("data.csv");
-		parseInput(argv[1]);
-		// ex.exchange(argv[1]); //hace lo mismo que parseInput
+		ex.exchange(argv[1]);
 	} catch(std::exception &e){
 		std::cout << e.what() <<std::endl;
 	}
