@@ -6,6 +6,7 @@
 #include <deque>
 #include <ctime>
 #include <iterator>
+#include <cstdlib>
 
 void sortVec(std::vector<int> &cont, int beg, int end);
 void sortDeq(std::deque<int> &cont, int beg, int end);
@@ -18,11 +19,11 @@ T	parseInput(char **argv){
 
 	for (size_t i = 0; argv[i]; i++){
 		if (!check_int(argv[i]))
-			throw std::runtime_error("Non valid number -> " + argv[i]);
-		num = atoi(argv[i]);
+			throw std::runtime_error("Non valid number -> " + std::string(argv[i]));
+		num = std::atoi(argv[i]);
 		for (typename T::iterator it = cont.begin(); it != cont.end(); it++){
 			if (num == *it)
-				throw std::runtime_error("Duplicate number -> "+num);
+				throw std::runtime_error("Duplicate number -> "+ std::string(argv[i]));
 		}
 		cont.push_back(num);	
 	}
@@ -38,8 +39,8 @@ void	printContainer(T & arr){
 
 template <typename T>
 void insertionSort(T &cont){
-    for (unsigned int step = 0; step < cont.size(); step++){
-        unsigned int key = cont[step];
+    for (size_t step = 0; step < cont.size(); step++){
+        int key = cont[step];
         int j = step - 1;
         while (j >= 0 && key < cont[j]){
             cont[j + 1] = cont[j];

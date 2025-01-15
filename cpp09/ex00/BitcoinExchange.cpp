@@ -50,18 +50,20 @@ std::pair<std::string, double> BitcoinExchange::parseLine(std::string line, cons
 void BitcoinExchange::exchange(const char *inputF){
 	std::ifstream file;
 	std::string line;
+	int	header=0;
 	std::pair<std::string, double> tmp;
 
 	file.open(inputF);
 	if (file.fail())
 		throw std::runtime_error("Error opening input file");
-	std::getline(file, line, '\n');
-	if (line != "date | value")
-		throw (std::runtime_error("Incorrect format in input file header"));
 	while (std::getline(file, line, '\n'))
 	{
+		if (line == "date | value" && !header){
+			header++;
+			continue;
+		}
 		try{
-			tmp = this->parseLine(line, "|"); //HAY QUE EMPEZAR DESDE EL FINAL
+			tmp = this->parseLine(line, "|");
 			for (std::map<std::string, double>::reverse_iterator it = _rates.rbegin(); it != _rates.rend(); it++){
 				if (tmp.first >= (*it).first){
 					std::cout << tmp.first << " => " <<tmp.second<<" = " <<tmp.second * (*it).second<<std::endl;
@@ -97,7 +99,7 @@ bool parseDate(std::string line){
 	for (size_t i = 0; i<line.length(); ++i){
 		if((i == 4 || i == 7) && line[i]!='-')
 			return false;
-		else if(!isnumber(line[i]) && line[i]!='-')
+		else if(!isdigit(line[i]) && line[i]!='-')
 			return false;
 	}
 	std::string parsed;

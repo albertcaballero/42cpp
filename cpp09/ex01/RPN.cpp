@@ -34,7 +34,7 @@ void doRPN(char* argv){
 		if (!val.empty()){
 			if (val.length() != 1)
 				throw std::runtime_error("Error in format in -> " + val);
-			if (isnumber(val[0]))
+			if (isdigit(val[0]))
 				st.push(atoi(val.c_str()));
 			else
 				calculate(st, val[0]);
