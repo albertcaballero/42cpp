@@ -7,8 +7,8 @@
 #include <ctime>
 #include <iterator>
 
-std::vector<int> sortVec(std::vector<int> unsortedVec);
-std::deque<int> sortDeq(std::deque<int> unsortedDeq);
+void sortVec(std::vector<int> &cont, int beg, int end);
+void sortDeq(std::deque<int> &cont, int beg, int end);
 bool check_int(const std::string value);
 
 template <typename T>
@@ -30,11 +30,43 @@ T	parseInput(char **argv){
 }
 
 template <typename T>
-void	printContainer(T & arr)
-{
+void	printContainer(T & arr){
 	for (typename T::iterator it = arr.begin(); it != arr.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
+}
+
+template <typename T>
+void insertionSort(T &cont){
+    for (unsigned int step = 0; step < cont.size(); step++){
+        unsigned int key = cont[step];
+        int j = step - 1;
+        while (j >= 0 && key < cont[j]){
+            cont[j + 1] = cont[j];
+            j--;
+        }
+        cont[j + 1] = key;
+    }
+}
+
+template <typename T>
+void	mergeSort(T &cont, int left, int mid, int right)
+{  
+    T temp(right - left + 1);
+    int i = left, j = mid+1, k = 0;
+    while (i <= mid && j <= right) 
+    {
+        if (cont[i] <= cont[j])
+            temp[k++] = cont[i++];
+        else
+            temp[k++] = cont[j++];
+    }
+    while (i <= mid)
+        temp[k++] = cont[i++];
+    while (j <= right)
+        temp[k++] = cont[j++];
+    for (int p = 0; p < k; p++)
+    cont[left+p] = temp[p];
 }
 
 #endif
